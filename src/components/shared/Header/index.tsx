@@ -1,0 +1,144 @@
+"use client";
+// Design system
+import {
+  Box,
+  Typography,
+  Button,
+  Avatar,
+  useTheme,
+  Modal,
+  TextField,
+} from "@mui/material";
+import AddTwoToneIcon from "@mui/icons-material/AddTwoTone";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import CloseIcon from "@mui/icons-material/Close";
+// Strings
+import { words } from "@/strings";
+// Styles
+import { StyledBox } from "./styled";
+import { useState } from "react";
+
+interface IHeaderProps {
+  title: string;
+}
+
+const Header = (props: IHeaderProps) => {
+  const theme = useTheme();
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
+  const handleOpenAddQuestionModal = () => {
+    setIsAddModalOpen(true);
+  };
+
+  return (
+    <>
+      <Modal
+        open={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "50%",
+            height: "50%",
+            position: "absolute",
+            left: "25%",
+          }}
+        >
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            bgcolor={theme.palette.colors.naturalsWhite}
+            width="1"
+            padding="12px 20px"
+          >
+            <Typography variant="h1">{words.createNewQuestion}</Typography>
+            <Box
+              onClick={() => setIsAddModalOpen(false)}
+              style={{ cursor: "pointer" }}
+            >
+              <CloseIcon />
+            </Box>
+          </Box>
+          <Box
+            padding="20px 20px 24px"
+            width="1"
+            bgcolor={theme.palette.colors.grayLightest}
+          >
+            <Box
+              display="flex"
+              gap="10px"
+              flexDirection="column"
+              marginBottom="14px"
+            >
+              <Typography variant="h6" color={theme.palette.colors.grayDarker}>
+                {words.subject}
+              </Typography>
+              <TextField fullWidth autoComplete="off" />
+            </Box>
+            <Box display="flex" gap="10px" flexDirection="column">
+              <Typography variant="h6" color={theme.palette.colors.grayDarker}>
+                {words.questionText}
+              </Typography>
+              <textarea />
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="flex-end"
+              gap="16px"
+              marginTop="24px"
+            >
+              <Button variant="text" color="success">
+                {words.cancel}
+              </Button>
+              <Button variant="contained" color="success">
+                {words.createQuestion}
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Modal>
+      <StyledBox>
+        <Box>
+          <Typography variant="h1">{props.title}</Typography>
+        </Box>
+        <Box display="flex" gap="40px">
+          <Button
+            style={{
+              padding: "8px",
+              width: "126px",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+            variant="contained"
+            color="success"
+            startIcon={<AddTwoToneIcon style={{ marginInline: "0" }} />}
+            onClick={handleOpenAddQuestionModal}
+          >
+            {words.newQuestion}
+          </Button>
+          <Box display="flex" alignItems="center" gap="12px">
+            <Avatar
+              sx={{ width: 44, height: 44 }}
+              alt="Remy Sharp"
+              src="/static/images/avatar/1.jpg"
+            />
+            <Typography variant="h4" color={theme.palette.colors.grayDarker}>
+              {words.fakeName}
+            </Typography>
+            <ArrowDropDownIcon />
+          </Box>
+        </Box>
+      </StyledBox>
+    </>
+  );
+};
+
+export default Header;
