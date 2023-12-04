@@ -18,7 +18,7 @@ import { words } from "@/strings";
 import { StyledBox } from "./styled";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { QuestionServices } from "@/services";
 import { IQuestion } from "@/services/questions/types";
 
@@ -30,11 +30,17 @@ const Header = (props: IHeaderProps) => {
   const theme = useTheme();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-  const mutation = useMutation((q: IQuestion) => {
-    return QuestionServices.createQuestion(q);
+  const queryClient = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (q: IQuestion) => {
+      return QuestionServices.createQuestion(q);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["questions"] });
+    },
   });
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     mode: "onChange",
     defaultValues: {
       title: "",
@@ -58,14 +64,21 @@ const Header = (props: IHeaderProps) => {
       answers: [],
     };
 
+    queryClient.invalidateQueries();
     mutation.mutate(question);
+    setIsAddModalOpen(false);
+  };
+
+  const handleCloseModal = () => {
+    setIsAddModalOpen(false);
+    reset();
   };
 
   return (
     <>
       <Modal
         open={isAddModalOpen}
-        onClose={() => setIsAddModalOpen(false)}
+        onClose={handleCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
@@ -126,7 +139,7 @@ const Header = (props: IHeaderProps) => {
               gap="16px"
               marginTop="24px"
             >
-              <Button variant="text" color="success">
+              <Button variant="text" color="success" onClick={handleCloseModal}>
                 {words.cancel}
               </Button>
               <Button

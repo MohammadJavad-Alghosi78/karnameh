@@ -2,55 +2,72 @@
 import { AnswerCard, QuestionCard } from "@/components";
 import { Container, Header } from "@/components/shared";
 import { QuestionServices } from "@/services";
+import { IAnswer } from "@/services/questions/types";
 import { words } from "@/strings";
 import { Box, Typography, useTheme } from "@mui/material";
-import { useQuery } from "react-query";
+import { QueryKey, useQuery } from "react-query";
 
 interface IQuestionProps {
   params: {
-    id: string;
+    id: string | number;
   };
 }
 
 const Question = (props: IQuestionProps) => {
   const theme = useTheme();
   const questionId = props.params.id;
-  const res = useQuery(questionId, QuestionServices.getQuestion(questionId));
+
+  const getQuestion = async () => {
+    const { data } = await QuestionServices.getQuestion(questionId);
+    return data;
+  };
+
+  const { data, isLoading } = useQuery(["question", questionId], getQuestion);
 
   return (
     <>
       <Header title={words.questionDetails} />
-      <Container>
-        <QuestionCard
-          title="مشکل در Auth در React"
-          image=""
-          description="سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره"
-          date="۱۴۰۰/۲/۱۵ "
-          numOfAnswers={20}
-          questionId="1"
-          time="۱۶:۴۸"
-          showButton={false}
-        />
-        <Box marginTop="24px">
-          <Typography
-            marginBottom="16px"
-            variant="h1"
-            color={theme.palette.colors.naturalsBlack}
-          >
-            {words.answers}
-          </Typography>
-          <AnswerCard
-            name="علی کیا"
-            image=""
-            answer="متغیر VNE رو توی فایلت تغییر بده درست میشه"
-            date="۱۴۰۰/۲/۱۵"
-            time="۱۶:۴۸"
-            answerId=""
-            likes={25}
-            disLikes={2}
-          />
+      {isLoading ? (
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <Typography variant="h1">{words.loading}</Typography>
         </Box>
-      </Container>
+      ) : (
+        <Container>
+          <QuestionCard
+            title={data?.title}
+            image={data?.image}
+            description={data?.description}
+            date={data?.date}
+            numOfAnswers={data?.numOfAnswers}
+            questionId={questionId}
+            time={data?.time}
+            showButton={false}
+          />
+          {!!data.answers.length && (
+            <Box marginTop="24px">
+              <Typography
+                marginBottom="16px"
+                variant="h1"
+                color={theme.palette.colors.naturalsBlack}
+              >
+                {words.answers}
+              </Typography>
+              {data.answers.map((item: IAnswer) => (
+                <AnswerCard
+                  name={item.name}
+                  image={item.image}
+                  answer={item.answer}
+                  date={item.date}
+                  time={item.time}
+                  answerId={item.answerId}
+                  likes={item.likes}
+                  disLikes={item.disLikes}
+                />
+              ))}
+            </Box>
+          )}
+        </Container>
+      )}
     </>
   );
 };

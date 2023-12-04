@@ -10,25 +10,35 @@
       "time": "16:48",
       "answers": [
         {
-          "name": "علی کیا",
+          "name": "میلاد الغوثی",
           "image": "",
-          "answer": "متغیر VNE رو توی فایلت تغییر بده درست میشه",
-          "date": "1400/12/15",
-          "time": "16:48",
+          "answer": "کلا node_modules رو پاک کن و دوباره نصب کن",
+          "date": "1390/02/25",
+          "time": "23:06",
           "answerId": "a1",
-          "likes": 25,
-          "disLikes": 2
+          "likes": 10,
+          "disLikes": 1
         }
       ]
     },
     {
-      "id": 1701716687266,
-      "title": "ssss",
-      "description": "fasfsadf",
+      "id": 1701718772618,
+      "title": "test",
+      "description": "test",
       "image": "",
       "date": "۱۴۰۲/۹/۱۳",
       "numOfAnswers": 0,
-      "time": "22:34",
+      "time": "23:9",
+      "answers": []
+    },
+    {
+      "id": 1701718854609,
+      "title": "test",
+      "description": "aaaa",
+      "image": "",
+      "date": "۱۴۰۲/۹/۱۳",
+      "numOfAnswers": 0,
+      "time": "23:10",
       "answers": []
     }
   ]

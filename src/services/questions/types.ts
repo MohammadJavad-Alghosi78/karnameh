@@ -24,7 +24,7 @@ export interface IQuestion {
 }
 
 export type GetQuestions = () => Promise<AxiosResponse<Array<IQuestion>>>;
-export type GetQuestion = (id: string | number) => any;
+export type GetQuestion = (id: string | number) => Promise<AxiosResponse<any>>;
 export type CreateQuestion = (
   question: IQuestion
 ) => Promise<AxiosResponse<any>>;
