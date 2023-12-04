@@ -9,4 +9,11 @@ export const words = {
   questionText: "متن سوال",
   createQuestion: "ایجاد سوال",
   cancel: "انصراف",
+  time: "ساعت",
+  date: "تاریخ",
+  seeDetails: "مشاهده جزئیات",
+  questionDetails: "جزئیات سوال",
+  answers: "پاسخ‌ها",
+  goodAnswer: "پاسخ خوب بود",
+  badAnswer: "پاسخ خوب نبود",
 };

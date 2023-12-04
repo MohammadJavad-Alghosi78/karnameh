@@ -110,7 +110,7 @@ const Header = (props: IHeaderProps) => {
         </Box>
         <Box display="flex" gap="40px">
           <Button
-            style={{
+            sx={{
               padding: "8px",
               width: "126px",
               display: "flex",

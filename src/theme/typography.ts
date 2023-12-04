@@ -1,5 +1,5 @@
 export const typography = {
-  fontFamily: "iran-sans",
+  fontFamily: "IRANSans",
   fontStyle: "normal",
   h1: {
     fontSize: "24px",

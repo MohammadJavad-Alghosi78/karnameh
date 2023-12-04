@@ -21,10 +21,7 @@ export default function RootLayout({ children }: IRootLayout) {
   return (
     <html>
       <body>
-        <ThemeRegistry>
-          <Header title={words.questionsList} />
-          <Container>{children}</Container>
-        </ThemeRegistry>
+        <ThemeRegistry>{children}</ThemeRegistry>
       </body>
     </html>
   );
