@@ -1,49 +1,38 @@
 "use client";
 import { QuestionCard } from "@/components";
 import { Container, Header } from "@/components/shared";
+import { QuestionServices } from "@/services";
 import { words } from "@/strings";
+import { Box, Typography } from "@mui/material";
+import { useQuery } from "react-query";
 
 export default function Home() {
+  const { data: response, isLoading } = useQuery(
+    "questions",
+    QuestionServices.getQuestions
+  );
+
   return (
     <>
       <Header title={words.questionsList} />
       <Container>
-        <QuestionCard
-          title="مشکل در Auth در React"
-          image=""
-          description="سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره"
-          date="۱۴۰۰/۲/۱۵ "
-          numOfAnswers={20}
-          questionId="1"
-          time="۱۶:۴۸"
-        />
-        <QuestionCard
-          title="مشکل در Auth در React"
-          image=""
-          description="سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره"
-          date="۱۴۰۰/۲/۱۵ "
-          numOfAnswers={20}
-          questionId="2"
-          time="۱۶:۴۸"
-        />
-        <QuestionCard
-          title="مشکل در Auth در React"
-          image=""
-          description="سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره"
-          date="۱۴۰۰/۲/۱۵ "
-          numOfAnswers={20}
-          questionId="3"
-          time="۱۶:۴۸"
-        />
-        <QuestionCard
-          title="مشکل در Auth در React"
-          image=""
-          description="سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره"
-          date="۱۴۰۰/۲/۱۵ "
-          numOfAnswers={20}
-          questionId="4"
-          time="۱۶:۴۸"
-        />
+        {isLoading ? (
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Typography variant="h1">{words.loading}</Typography>
+          </Box>
+        ) : (
+          response?.data.map((item) => (
+            <QuestionCard
+              title={item.title}
+              image={item.image}
+              description={item.description}
+              date={item.date}
+              numOfAnswers={item.numOfAnswers}
+              questionId={item.id}
+              time={item.time}
+            />
+          ))
+        )}
       </Container>
     </>
   );

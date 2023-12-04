@@ -1,0 +1,35 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "title": "مشکل در Auth در React",
+      "image": "",
+      "description": "سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره",
+      "date": "1400/12/15",
+      "numOfAnswers": 20,
+      "time": "16:48",
+      "answers": [
+        {
+          "name": "علی کیا",
+          "image": "",
+          "answer": "متغیر VNE رو توی فایلت تغییر بده درست میشه",
+          "date": "1400/12/15",
+          "time": "16:48",
+          "answerId": "a1",
+          "likes": 25,
+          "disLikes": 2
+        }
+      ]
+    },
+    {
+      "id": 1701716687266,
+      "title": "ssss",
+      "description": "fasfsadf",
+      "image": "",
+      "date": "۱۴۰۲/۹/۱۳",
+      "numOfAnswers": 0,
+      "time": "22:34",
+      "answers": []
+    }
+  ]
+}

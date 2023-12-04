@@ -17,6 +17,10 @@ import { words } from "@/strings";
 // Styles
 import { StyledBox } from "./styled";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useMutation } from "react-query";
+import { QuestionServices } from "@/services";
+import { IQuestion } from "@/services/questions/types";
 
 interface IHeaderProps {
   title: string;
@@ -26,8 +30,35 @@ const Header = (props: IHeaderProps) => {
   const theme = useTheme();
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
+  const mutation = useMutation((q: IQuestion) => {
+    return QuestionServices.createQuestion(q);
+  });
+
+  const { register, handleSubmit } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      title: "",
+      description: "",
+    },
+  });
+
   const handleOpenAddQuestionModal = () => {
     setIsAddModalOpen(true);
+  };
+
+  const onSubmit = (data: any) => {
+    const currentDate = new Date();
+    const question = {
+      id: currentDate.getTime(),
+      ...data,
+      image: "",
+      date: new Intl.DateTimeFormat("fa-IR").format(currentDate),
+      numOfAnswers: 0,
+      time: `${currentDate.getHours()}:${currentDate.getMinutes()}`,
+      answers: [],
+    };
+
+    mutation.mutate(question);
   };
 
   return (
@@ -80,13 +111,14 @@ const Header = (props: IHeaderProps) => {
               <Typography variant="h6" color={theme.palette.colors.grayDarker}>
                 {words.subject}
               </Typography>
-              <TextField fullWidth autoComplete="off" />
+              <TextField {...register("title")} fullWidth autoComplete="off" />
             </Box>
             <Box display="flex" gap="10px" flexDirection="column">
               <Typography variant="h6" color={theme.palette.colors.grayDarker}>
                 {words.questionText}
               </Typography>
-              <textarea />
+
+              <textarea {...register("description")} />
             </Box>
             <Box
               display="flex"
@@ -97,7 +129,11 @@ const Header = (props: IHeaderProps) => {
               <Button variant="text" color="success">
                 {words.cancel}
               </Button>
-              <Button variant="contained" color="success">
+              <Button
+                variant="contained"
+                color="success"
+                onClick={handleSubmit(onSubmit)}
+              >
                 {words.createQuestion}
               </Button>
             </Box>
@@ -125,11 +161,7 @@ const Header = (props: IHeaderProps) => {
             {words.newQuestion}
           </Button>
           <Box display="flex" alignItems="center" gap="12px">
-            <Avatar
-              sx={{ width: 44, height: 44 }}
-              alt="Remy Sharp"
-              src="/static/images/avatar/1.jpg"
-            />
+            <Avatar sx={{ width: 44, height: 44 }} alt="Remy Sharp" src="" />
             <Typography variant="h4" color={theme.palette.colors.grayDarker}>
               {words.fakeName}
             </Typography>

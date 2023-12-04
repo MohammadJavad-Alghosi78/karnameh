@@ -7,7 +7,6 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import SentimentSatisfiedAltOutlinedIcon from "@mui/icons-material/SentimentSatisfiedAltOutlined";
 
 interface IAnswerCardProps {
   name: string;

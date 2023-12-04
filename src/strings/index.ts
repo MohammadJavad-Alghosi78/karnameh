@@ -16,4 +16,5 @@ export const words = {
   answers: "پاسخ‌ها",
   goodAnswer: "پاسخ خوب بود",
   badAnswer: "پاسخ خوب نبود",
+  loading: "در حال بارگزاری ...",
 };

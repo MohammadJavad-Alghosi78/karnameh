@@ -1,11 +1,22 @@
 "use client";
 import { AnswerCard, QuestionCard } from "@/components";
 import { Container, Header } from "@/components/shared";
+import { QuestionServices } from "@/services";
 import { words } from "@/strings";
 import { Box, Typography, useTheme } from "@mui/material";
+import { useQuery } from "react-query";
 
-const Question = () => {
+interface IQuestionProps {
+  params: {
+    id: string;
+  };
+}
+
+const Question = (props: IQuestionProps) => {
   const theme = useTheme();
+  const questionId = props.params.id;
+  const res = useQuery(questionId, QuestionServices.getQuestion(questionId));
+
   return (
     <>
       <Header title={words.questionDetails} />

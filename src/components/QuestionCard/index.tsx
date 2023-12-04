@@ -17,7 +17,7 @@ interface IQuestionCardProps {
   time: string;
   date: string;
   numOfAnswers: number;
-  questionId: string;
+  questionId: string | number;
   showButton?: boolean;
 }
 
