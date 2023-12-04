@@ -6,7 +6,6 @@
       "image": "",
       "description": "سلام من میخوام یه noitacitnehtua ساده تو tcaer بسازم اما این rorre رو بهم میده. نمیدونم مشکل از کجاست. عکس خروجی elosnoc رو هم گذاشتم که ببینید دقیقا چه مشکلی وجود داره",
       "date": "1400/12/15",
-      "numOfAnswers": 20,
       "time": "16:48",
       "answers": [
         {
@@ -16,29 +15,27 @@
           "date": "1390/02/25",
           "time": "23:06",
           "answerId": "a1",
-          "likes": 10,
-          "disLikes": 1
+          "likes": 26,
+          "disLikes": 16
         }
       ]
     },
     {
-      "id": 1701718772618,
+      "id": 1701720196193,
       "title": "test",
-      "description": "test",
+      "description": "ssss",
       "image": "",
       "date": "۱۴۰۲/۹/۱۳",
-      "numOfAnswers": 0,
-      "time": "23:9",
+      "time": "23:33",
       "answers": []
     },
     {
-      "id": 1701718854609,
-      "title": "test",
-      "description": "aaaa",
+      "id": 1701721424147,
+      "title": "sss",
+      "description": "ffff",
       "image": "",
       "date": "۱۴۰۲/۹/۱۳",
-      "numOfAnswers": 0,
-      "time": "23:10",
+      "time": "23:53",
       "answers": []
     }
   ]

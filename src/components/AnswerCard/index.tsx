@@ -1,3 +1,5 @@
+import { QuestionServices } from "@/services";
+import { IQuestion } from "@/services/questions/types";
 import { words } from "@/strings";
 import {
   useTheme,
@@ -7,6 +9,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
+import { useMutation, useQueryClient } from "react-query";
 
 interface IAnswerCardProps {
   name: string;
@@ -15,13 +18,66 @@ interface IAnswerCardProps {
   time: string;
   date: string;
   answerId: string;
+  relatedQuestion?: IQuestion;
   likes: number;
   disLikes: number;
 }
 
 const AnswerCard = (props: IAnswerCardProps) => {
-  const { name, image, answer, time, date, answerId, likes, disLikes } = props;
+  const {
+    name,
+    image,
+    answer,
+    time,
+    date,
+    answerId,
+    relatedQuestion,
+    likes,
+    disLikes,
+  } = props;
   const theme = useTheme();
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (q: IQuestion) => {
+      return QuestionServices.updateQuestionData(q);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries();
+    },
+  });
+
+  const handleLike = () => {
+    const targetAnswer = relatedQuestion?.answers.find(
+      (item) => item.answerId === answerId
+    );
+    const targetAnswerIndex = relatedQuestion?.answers.findIndex(
+      (item) => item.answerId === answerId
+    ) as number;
+    const updatedAnswer = { ...targetAnswer, likes: targetAnswer!.likes + 1 };
+    // @ts-ignore
+    relatedQuestion!.answers[targetAnswerIndex] = updatedAnswer;
+    // @ts-ignore
+    mutation.mutate(relatedQuestion);
+  };
+
+  const handleDisLike = () => {
+    const targetAnswer = relatedQuestion?.answers.find(
+      (item) => item.answerId === answerId
+    );
+    const targetAnswerIndex = relatedQuestion?.answers.findIndex(
+      (item) => item.answerId === answerId
+    ) as number;
+    const updatedAnswer = {
+      ...targetAnswer,
+      disLikes: targetAnswer!.disLikes + 1,
+    };
+    // @ts-ignore
+    relatedQuestion!.answers[targetAnswerIndex] = updatedAnswer;
+    // @ts-ignore
+    mutation.mutate(relatedQuestion);
+  };
+
   return (
     <Box
       sx={{
@@ -153,7 +209,7 @@ const AnswerCard = (props: IAnswerCardProps) => {
                 />
               </svg>
             }
-            onClick={() => console.log("clicked")}
+            onClick={handleLike}
           >
             {words.goodAnswer}
           </Button>
@@ -180,7 +236,7 @@ const AnswerCard = (props: IAnswerCardProps) => {
                 />
               </svg>
             }
-            onClick={() => console.log("clicked")}
+            onClick={handleDisLike}
           >
             {words.badAnswer}
           </Button>

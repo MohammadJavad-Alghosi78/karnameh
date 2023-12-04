@@ -34,16 +34,16 @@ const Question = (props: IQuestionProps) => {
       ) : (
         <Container>
           <QuestionCard
-            title={data?.title}
-            image={data?.image}
-            description={data?.description}
-            date={data?.date}
-            numOfAnswers={data?.numOfAnswers}
+            title={data!.title}
+            image={data!.image}
+            description={data!.description}
+            date={data!.date}
+            numOfAnswers={data!.answers.length}
             questionId={questionId}
-            time={data?.time}
+            time={data!.time}
             showButton={false}
           />
-          {!!data.answers.length && (
+          {!!data!.answers.length && (
             <Box marginTop="24px">
               <Typography
                 marginBottom="16px"
@@ -52,7 +52,7 @@ const Question = (props: IQuestionProps) => {
               >
                 {words.answers}
               </Typography>
-              {data.answers.map((item: IAnswer) => (
+              {data!.answers.map((item: IAnswer) => (
                 <AnswerCard
                   name={item.name}
                   image={item.image}
@@ -62,6 +62,7 @@ const Question = (props: IQuestionProps) => {
                   answerId={item.answerId}
                   likes={item.likes}
                   disLikes={item.disLikes}
+                  relatedQuestion={data}
                 />
               ))}
             </Box>

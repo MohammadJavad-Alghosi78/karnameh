@@ -27,7 +27,7 @@ export default function Home() {
               image={item.image}
               description={item.description}
               date={item.date}
-              numOfAnswers={item.numOfAnswers}
+              numOfAnswers={item.answers.length}
               questionId={item.id}
               time={item.time}
             />

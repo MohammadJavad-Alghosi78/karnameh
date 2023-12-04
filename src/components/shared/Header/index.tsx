@@ -59,7 +59,6 @@ const Header = (props: IHeaderProps) => {
       ...data,
       image: "",
       date: new Intl.DateTimeFormat("fa-IR").format(currentDate),
-      numOfAnswers: 0,
       time: `${currentDate.getHours()}:${currentDate.getMinutes()}`,
       answers: [],
     };
