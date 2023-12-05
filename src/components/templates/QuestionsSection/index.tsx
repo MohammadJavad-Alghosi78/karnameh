@@ -20,6 +20,7 @@ const QuestionsSection = (props: IQuestionSectionProps) => {
       {hasData ? (
         questionsResponse?.data.map((item) => (
           <QuestionCard
+            key={item.id}
             title={item.title}
             image={item.image}
             description={item.description}

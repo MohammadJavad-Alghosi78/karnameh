@@ -54,6 +54,7 @@ const QuestionDetails = (props: IQuestionDetails) => {
               <Box display="flex" gap="20px" flexDirection="column">
                 {data.answers.map((item: IAnswer) => (
                   <AnswerCard
+                    key={item.answerId}
                     name={item.name}
                     image={item.image}
                     answer={item.answer}
