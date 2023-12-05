@@ -13,6 +13,8 @@ export { default as AnswerCard } from "./organisms/AnswerCard";
 export { default as Header } from "./organisms/Header";
 export { default as Container } from "./organisms/Container";
 // Templates
-
+export { default as QuestionsSection } from "./templates/QuestionsSection";
+export { default as AnswerSection } from "./templates/AnswerSection/container";
 // Pages
 export { default as Home } from "./pages/Home/container";
+export { default as QuestionDetailsContainer } from "./pages/QuestionDetails/container";

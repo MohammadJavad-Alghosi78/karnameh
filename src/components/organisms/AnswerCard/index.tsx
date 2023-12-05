@@ -17,7 +17,7 @@ interface IAnswerCardProps {
   answer: string;
   time: string;
   date: string;
-  answerId: string;
+  answerId: string | number;
   relatedQuestion?: IQuestion;
   likes: number;
   disLikes: number;

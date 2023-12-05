@@ -15,8 +15,48 @@
           "date": "1396/12/25",
           "time": "11:32",
           "answerId": "A1",
-          "likes": 5,
-          "disLikes": 1
+          "likes": 7,
+          "disLikes": 2
+        },
+        {
+          "answer": "sfasdf",
+          "answerId": 1701783621009,
+          "date": "۱۴۰۲/۹/۱۴",
+          "time": "17:10",
+          "name": "میلاد الغوثی",
+          "image": "",
+          "likes": 3,
+          "disLikes": 2
+        },
+        {
+          "answer": "جواب جدید",
+          "answerId": 1701784164919,
+          "date": "۱۴۰۲/۹/۱۴",
+          "time": "17:19",
+          "name": "میلاد الغوثی",
+          "image": "",
+          "likes": 8,
+          "disLikes": 9
+        }
+      ]
+    },
+    {
+      "id": 1701783632437,
+      "title": "test",
+      "description": "ssss",
+      "image": "",
+      "date": "۱۴۰۲/۹/۱۴",
+      "time": "17:10",
+      "answers": [
+        {
+          "answer": "tessss",
+          "answerId": 1701783644343,
+          "date": "۱۴۰۲/۹/۱۴",
+          "time": "17:10",
+          "name": "میلاد الغوثی",
+          "image": "",
+          "likes": 0,
+          "disLikes": 0
         }
       ]
     }

@@ -8,7 +8,7 @@ export interface IAnswer {
   answer: string;
   date: string;
   time: string;
-  answerId: string;
+  answerId: string | number;
   likes: number;
   disLikes: number;
 }
