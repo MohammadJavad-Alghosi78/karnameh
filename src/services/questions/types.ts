@@ -38,3 +38,5 @@ export type UpdateQuestionData = (
 export type CreateQuestion = (
   q: IQuestion
 ) => Promise<AxiosResponse<IQuestion>>;
+
+export type CreateAnswer = (q: IQuestion) => Promise<AxiosResponse<IQuestion>>;

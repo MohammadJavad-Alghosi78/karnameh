@@ -40,15 +40,6 @@ declare module "@mui/material/styles" {
   }
 }
 
-// Update the Typography's variant prop options
-declare module "@mui/material/Typography" {
-  interface TypographyPropsVariantOverrides {
-    input: true;
-    body3: true;
-    smallButton: true;
-  }
-}
-
 declare module "@mui/material/Typography" {
   interface ButtonPropsColorOverrides {
     custom: true;

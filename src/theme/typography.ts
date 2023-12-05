@@ -36,4 +36,9 @@ export const typography = {
     fontWeight: 400,
     lineHeight: "24px",
   },
+  body2: {
+    fontSize: "10px",
+    fontWeight: 400,
+    lineHeight: "16px",
+  },
 };

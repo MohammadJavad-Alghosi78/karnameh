@@ -1,5 +1,6 @@
 import { http } from "@/config";
 import {
+  CreateAnswer,
   CreateQuestion,
   GetQuestion,
   GetQuestions,
@@ -7,14 +8,19 @@ import {
 } from "./types";
 
 class QuestionServices {
+  // GET REQUESTS
   static getQuestions: GetQuestions = () => http.get("/questions/");
   static getQuestion: GetQuestion = (id) => http.get(`/questions/${id}/`);
 
-  static updateQuestionData: UpdateQuestionData = (questionData) =>
-    http.put(`/questions/${questionData.id}/`, questionData);
-
+  // POST REQUESTS
   static createQuestion: CreateQuestion = (question) =>
     http.post("/questions/", question);
+
+  // PUT REQUESTS
+  static updateQuestionData: UpdateQuestionData = (questionData) =>
+    http.put(`/questions/${questionData.id}/`, questionData);
+  static createAnswer: CreateAnswer = (questionData) =>
+    http.put(`/questions/${questionData.id}/`, questionData);
 }
 
 export default QuestionServices;

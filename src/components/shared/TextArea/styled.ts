@@ -1,6 +1,13 @@
-import { styled } from "@mui/material";
+import { styled, Box } from "@mui/material";
+
+export const Wrapper = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  gap: "8px",
+}));
 
 export const TextArea = styled("textarea")(({ theme }) => ({
+  width: "100%",
   padding: "12px 16px",
   borderRadius: "6px",
   border: `1px solid ${theme.palette.colors.grayLight}`,
@@ -11,4 +18,7 @@ export const TextArea = styled("textarea")(({ theme }) => ({
   lineHeight: "20px",
   color: theme.palette.colors.naturalsBlack,
   outline: "none",
+  "&::placeholder": {
+    color: theme.palette.colors.grayDefault,
+  },
 }));

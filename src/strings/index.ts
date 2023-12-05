@@ -1,4 +1,5 @@
 export const words = {
+  username: "میلاد الغوثی",
   karnameh: "کارنامه",
   karnamehDescription: "توضیحاتی درباره شرکت کارنامه",
   questionsList: "لیست سوالات",
@@ -18,4 +19,11 @@ export const words = {
   badAnswer: "پاسخ خوب نبود",
   loading: "در حال بارگزاری ...",
   createQuestionDesciptionPlaceholder: "لطفا متن سوال خود را وارد کنید...",
+  createQuestionTitlePlacholder: "لطفا عنوان سوال خود را وارد کنید...",
+  submitYourAnswer: "پاسخ خود را ثبت کنید",
+  writeYourAnswer: "پاسخ خود را بنویسید",
+  answerText: "متن پاسخ ...",
+  sendAnswer: "ارسال پاسخ",
+  thisFieldIsRequired: "پر کردن این فیلد اجباریست",
+  noData: "داده‌ای یافت نشد",
 };

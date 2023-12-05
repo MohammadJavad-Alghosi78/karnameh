@@ -7,7 +7,6 @@ import {
   Avatar,
   useTheme,
   Modal,
-  TextField,
 } from "@mui/material";
 import AddTwoToneIcon from "@mui/icons-material/AddTwoTone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -21,7 +20,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import { QuestionServices } from "@/services";
 import { IQuestion } from "@/services/questions/types";
-import TextArea from "../TextArea";
+import { TextArea, TextField } from "@/components/shared";
 
 interface IHeaderProps {
   title: string;
@@ -29,9 +28,10 @@ interface IHeaderProps {
 
 const Header = (props: IHeaderProps) => {
   const theme = useTheme();
-  const [isAddModalOpen, setIsAddModalOpen] = useState(true);
-
   const queryClient = useQueryClient();
+
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+
   const mutation = useMutation({
     mutationFn: (q: IQuestion) => {
       return QuestionServices.createQuestion(q);
@@ -41,7 +41,7 @@ const Header = (props: IHeaderProps) => {
     },
   });
 
-  const { register, handleSubmit, reset, watch, setValue } = useForm({
+  const { handleSubmit, reset, watch, setValue } = useForm({
     mode: "onChange",
     defaultValues: {
       title: "",
@@ -124,7 +124,12 @@ const Header = (props: IHeaderProps) => {
               <Typography variant="h6" color={theme.palette.colors.grayDarker}>
                 {words.subject}
               </Typography>
-              <TextField {...register("title")} fullWidth autoComplete="off" />
+              <TextField
+                value={watch("title")}
+                onChange={(e) => setValue("title", e.target.value)}
+                name="title"
+                placeholder={words.createQuestionTitlePlacholder}
+              />
             </Box>
             <Box display="flex" gap="10px" flexDirection="column">
               <Typography variant="h6" color={theme.palette.colors.grayDarker}>
