@@ -1,15 +1,11 @@
 "use client";
 // node_modules
 import { ReactNode } from "react";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
+// Theme
+import ThemeRegistry from "@/theme/ThemeRegistery";
 // Styles
 import "@/styles/globals.css";
-import ThemeRegistry from "@/theme/ThemeRegistery";
-
-// export const metadata = {
-//   title: words.karnameh,
-//   description: words.karnamehDescription,
-// };
 
 const queryClient = new QueryClient();
 

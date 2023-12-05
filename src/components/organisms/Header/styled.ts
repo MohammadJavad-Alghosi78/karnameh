@@ -10,6 +10,10 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.colors.naturalsWhite,
   padding: "16px 56px",
 
+  "& .MuiButtonBase-root": {
+    color: theme.palette.colors.naturalsWhite,
+  },
+
   "& .MuiButton-startIcon": {
     marginInline: "0",
   },

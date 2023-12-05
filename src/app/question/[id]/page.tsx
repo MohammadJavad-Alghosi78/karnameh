@@ -1,7 +1,7 @@
 "use client";
 import { AnswerCard, QuestionCard } from "@/components";
-import { Container, Header } from "@/components/shared";
-import { TextArea } from "@/components/shared";
+import { Container, Header } from "@/components";
+import { TextArea } from "@/components";
 import { QuestionServices } from "@/services";
 import { IAnswer, IQuestion } from "@/services/questions/types";
 import { words } from "@/strings";

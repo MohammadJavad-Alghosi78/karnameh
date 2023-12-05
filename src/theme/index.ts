@@ -3,6 +3,7 @@ import { createTheme } from "@mui/material/styles";
 // Theme elements
 import { typography } from "./typography";
 import { palette } from "./palette";
+import { Shadows } from "@mui/material/styles/shadows";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -49,6 +50,11 @@ declare module "@mui/material/Typography" {
 const theme = createTheme({
   palette,
   typography,
+  shadows: [
+    "none",
+    "0px 0px 1px 0px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05)",
+    ...Array(23).fill("none"),
+  ] as Shadows,
 });
 
 export default theme;

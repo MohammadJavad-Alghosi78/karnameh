@@ -12,4 +12,7 @@ export const palette = {
     annotationsSuccess: "#66CB9F",
     grayDefault: "#AAA",
   },
+  success: {
+    main: "#27AE60",
+  },
 };

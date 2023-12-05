@@ -20,7 +20,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import { QuestionServices } from "@/services";
 import { IQuestion } from "@/services/questions/types";
-import { TextArea, TextField } from "@/components/shared";
+import { TextArea, TextField } from "@/components";
 
 interface IHeaderProps {
   title: string;
