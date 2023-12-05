@@ -42,7 +42,7 @@ const QuestionDetails = (props: IQuestionDetails) => {
             time={data!.time}
             showButton={false}
           />
-          {!!data!.answers.length && (
+          {data && !!data!.answers.length && (
             <Box marginTop="24px">
               <Typography
                 marginBottom="16px"
@@ -52,7 +52,7 @@ const QuestionDetails = (props: IQuestionDetails) => {
                 {words.answers}
               </Typography>
               <Box display="flex" gap="20px" flexDirection="column">
-                {data!.answers.map((item: IAnswer) => (
+                {data.answers.map((item: IAnswer) => (
                   <AnswerCard
                     name={item.name}
                     image={item.image}

@@ -14,7 +14,7 @@ interface IAnswerCardCotainerProps {
   time: string;
   date: string;
   answerId: string | number;
-  relatedQuestion?: IQuestion;
+  relatedQuestion: IQuestion;
   likes: number;
   disLikes: number;
 }
@@ -43,24 +43,25 @@ const AnswerCardContainer = (props: IAnswerCardCotainerProps) => {
   });
 
   const handleLike = () => {
-    const targetAnswer = relatedQuestion?.answers.find(
+    const clonedQuestion = { ...relatedQuestion };
+    const targetAnswer = clonedQuestion.answers.find(
       (item) => item.answerId === answerId
     );
-    const targetAnswerIndex = relatedQuestion?.answers.findIndex(
+    const targetAnswerIndex = clonedQuestion?.answers.findIndex(
       (item) => item.answerId === answerId
     ) as number;
     const updatedAnswer = { ...targetAnswer, likes: targetAnswer!.likes + 1 };
     // @ts-ignore
-    relatedQuestion!.answers[targetAnswerIndex] = updatedAnswer;
-    // @ts-ignore
-    mutation.mutate(relatedQuestion);
+    clonedQuestion.answers[targetAnswerIndex] = updatedAnswer;
+    mutation.mutate(clonedQuestion);
   };
 
   const handleDisLike = () => {
-    const targetAnswer = relatedQuestion?.answers.find(
+    const clonedQuestion = { ...relatedQuestion };
+    const targetAnswer = clonedQuestion?.answers.find(
       (item) => item.answerId === answerId
     );
-    const targetAnswerIndex = relatedQuestion?.answers.findIndex(
+    const targetAnswerIndex = clonedQuestion?.answers.findIndex(
       (item) => item.answerId === answerId
     ) as number;
     const updatedAnswer = {
@@ -68,9 +69,8 @@ const AnswerCardContainer = (props: IAnswerCardCotainerProps) => {
       disLikes: targetAnswer!.disLikes + 1,
     };
     // @ts-ignore
-    relatedQuestion!.answers[targetAnswerIndex] = updatedAnswer;
-    // @ts-ignore
-    mutation.mutate(relatedQuestion);
+    clonedQuestion.answers[targetAnswerIndex] = updatedAnswer;
+    mutation.mutate(clonedQuestion);
   };
 
   return (
