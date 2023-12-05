@@ -17,4 +17,5 @@ export const words = {
   goodAnswer: "پاسخ خوب بود",
   badAnswer: "پاسخ خوب نبود",
   loading: "در حال بارگزاری ...",
+  createQuestionDesciptionPlaceholder: "لطفا متن سوال خود را وارد کنید...",
 };

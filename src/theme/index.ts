@@ -13,6 +13,7 @@ declare module "@mui/material/styles" {
     naturalsBlack: string;
     naturalsWhite: string;
     karnamehBase: string;
+    grayLight: string;
     grayLightest: string;
     grayDarker: string;
     grayDark: string;
@@ -27,6 +28,7 @@ declare module "@mui/material/styles" {
       naturalsBlack: string;
       naturalsWhite: string;
       karnamehBase: string;
+      grayLight: string;
       grayLightest: string;
       grayDarker: string;
       grayDark: string;

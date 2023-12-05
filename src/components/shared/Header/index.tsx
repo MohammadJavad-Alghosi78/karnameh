@@ -21,6 +21,7 @@ import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "react-query";
 import { QuestionServices } from "@/services";
 import { IQuestion } from "@/services/questions/types";
+import TextArea from "../TextArea";
 
 interface IHeaderProps {
   title: string;
@@ -28,7 +29,7 @@ interface IHeaderProps {
 
 const Header = (props: IHeaderProps) => {
   const theme = useTheme();
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(true);
 
   const queryClient = useQueryClient();
   const mutation = useMutation({
@@ -40,7 +41,7 @@ const Header = (props: IHeaderProps) => {
     },
   });
 
-  const { register, handleSubmit, reset } = useForm({
+  const { register, handleSubmit, reset, watch, setValue } = useForm({
     mode: "onChange",
     defaultValues: {
       title: "",
@@ -130,7 +131,12 @@ const Header = (props: IHeaderProps) => {
                 {words.questionText}
               </Typography>
 
-              <textarea {...register("description")} />
+              <TextArea
+                value={watch("description")}
+                onChange={(e) => setValue("description", e.target.value)}
+                name="description"
+                placeholder={words.createQuestionDesciptionPlaceholder}
+              />
             </Box>
             <Box
               display="flex"

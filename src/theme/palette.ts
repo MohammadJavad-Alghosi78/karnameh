@@ -3,6 +3,7 @@ export const palette = {
     naturalsBlack: "#222",
     naturalsWhite: "#FFF",
     karnamehBase: "#27AE60",
+    grayLight: "#EEE",
     grayLightest: "#F9F9F9",
     grayDarker: "#454545",
     grayDark: "#777",
