@@ -77,6 +77,46 @@
           "image": "",
           "likes": 12,
           "disLikes": 5
+        },
+        {
+          "answer": "fsdfsafdss",
+          "answerId": 1701809021550,
+          "date": "۱۴۰۲/۹/۱۵",
+          "time": "0:13",
+          "name": "الناز شاکردوست",
+          "image": "",
+          "likes": 0,
+          "disLikes": 0
+        },
+        {
+          "answer": "sfsadf",
+          "answerId": 1701809028772,
+          "date": "۱۴۰۲/۹/۱۵",
+          "time": "0:13",
+          "name": "الناز شاکردوست",
+          "image": "",
+          "likes": 0,
+          "disLikes": 0
+        },
+        {
+          "answer": "sfsadfsafsafsaf",
+          "answerId": 1701809047807,
+          "date": "۱۴۰۲/۹/۱۵",
+          "time": "0:14",
+          "name": "الناز شاکردوست",
+          "image": "",
+          "likes": 0,
+          "disLikes": 0
+        },
+        {
+          "answer": "sfsadfsafsafsafsssssssss",
+          "answerId": 1701809059932,
+          "date": "۱۴۰۲/۹/۱۵",
+          "time": "0:14",
+          "name": "الناز شاکردوست",
+          "image": "",
+          "likes": 0,
+          "disLikes": 0
         }
       ]
     },
@@ -87,6 +127,15 @@
       "image": "",
       "date": "۱۴۰۲/۹/۱۴",
       "time": "18:16",
+      "answers": []
+    },
+    {
+      "id": 1701809065821,
+      "title": "fsadf",
+      "description": "afsdfsadf",
+      "image": "",
+      "date": "۱۴۰۲/۹/۱۵",
+      "time": "0:14",
       "answers": []
     }
   ]

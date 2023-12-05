@@ -51,7 +51,7 @@ const AnswerSectionContainer = (props: IAnswerSection) => {
 
     questionData.answers.push(preparedAnswer);
     mutation.mutate(questionData);
-    methods.reset();
+    methods.setValue("answer", "");
   };
   return (
     <FormProvider {...methods}>
