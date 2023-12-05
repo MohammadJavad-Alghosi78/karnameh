@@ -1,3 +1,6 @@
+// Strings
+import { words } from "@/strings";
+
 export const enum EStatusCodes {
   // Successfull
   OK = 200,
@@ -14,3 +17,10 @@ export const enum EStatusCodes {
   // Server Error
   INTERNAL_SERVER_ERROR = 500,
 }
+
+export const Rules = {
+  required: {
+    value: true,
+    message: words.thisFieldIsRequired,
+  },
+};

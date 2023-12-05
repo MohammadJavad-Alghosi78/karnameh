@@ -36,7 +36,6 @@ const AddQuestionModalContainer = (props: IAddQuestionModal) => {
       id: currentDate.getTime(),
       title,
       description,
-      numOfAnswers: 0,
       image: "",
       date: new Intl.DateTimeFormat("fa-IR").format(currentDate),
       time: `${currentDate.getHours()}:${currentDate.getMinutes()}`,

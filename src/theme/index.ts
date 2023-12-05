@@ -1,9 +1,10 @@
 // node_modules
 import { createTheme } from "@mui/material/styles";
+import { Shadows } from "@mui/material/styles/shadows";
 // Theme elements
 import { typography } from "./typography";
 import { palette } from "./palette";
-import { Shadows } from "@mui/material/styles/shadows";
+import { CSSProperties } from "react";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -11,32 +12,32 @@ declare module "@mui/material/styles" {
   }
 
   interface PaletteColor {
-    naturalsBlack: string;
-    naturalsWhite: string;
-    karnamehBase: string;
-    grayLight: string;
-    grayLightest: string;
-    grayDarker: string;
-    grayDark: string;
-    grayDefault: string;
-    secondaryLightest: string;
-    annotationsError: string;
-    annotationsSuccess: string;
+    naturalsBlack: CSSProperties["color"];
+    naturalsWhite: CSSProperties["color"];
+    karnamehBase: CSSProperties["color"];
+    grayLight: CSSProperties["color"];
+    grayLightest: CSSProperties["color"];
+    grayDarker: CSSProperties["color"];
+    grayDark: CSSProperties["color"];
+    grayDefault: CSSProperties["color"];
+    secondaryLightest: CSSProperties["color"];
+    annotationsError: CSSProperties["color"];
+    annotationsSuccess: CSSProperties["color"];
   }
 
   interface PaletteOptions {
     colors?: {
-      naturalsBlack: string;
-      naturalsWhite: string;
-      karnamehBase: string;
-      grayLight: string;
-      grayLightest: string;
-      grayDarker: string;
-      grayDark: string;
-      grayDefault: string;
-      secondaryLightest: string;
-      annotationsError: string;
-      annotationsSuccess: string;
+      naturalsBlack: CSSProperties["color"];
+      naturalsWhite: CSSProperties["color"];
+      karnamehBase: CSSProperties["color"];
+      grayLight: CSSProperties["color"];
+      grayLightest: CSSProperties["color"];
+      grayDarker: CSSProperties["color"];
+      grayDark: CSSProperties["color"];
+      grayDefault: CSSProperties["color"];
+      secondaryLightest: CSSProperties["color"];
+      annotationsError: CSSProperties["color"];
+      annotationsSuccess: CSSProperties["color"];
     };
   }
 }

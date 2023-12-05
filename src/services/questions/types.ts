@@ -19,7 +19,6 @@ export interface IQuestion {
   image: string;
   description: string;
   date: string;
-  numOfAnswers: number;
   time: string;
   answers: Array<IAnswer>;
 }

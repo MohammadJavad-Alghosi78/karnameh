@@ -9,6 +9,7 @@ interface IQuestionProps {
   questionId: string | number;
 }
 
+// Container/Presentation Design pattern
 const QuestionDetailsContainer = ({ questionId }: IQuestionProps) => {
   const getQuestion = async () => {
     const { data } = await QuestionServices.getQuestion(questionId);

@@ -1,5 +1,7 @@
 // node_modules
 import { ChangeEvent, HTMLAttributes } from "react";
+// Components
+import { Box } from "@mui/material";
 // Styles
 import { StyledTextField } from "./styled";
 
@@ -10,15 +12,17 @@ interface ITextFieldProps extends HTMLAttributes<HTMLInputElement> {
 }
 
 const TextFieldCp = (props: ITextFieldProps) => {
-  const { value, onChange, name, ...rest } = props;
+  const { value, onChange, name, placeholder } = props;
 
   return (
-    <StyledTextField
-      value={value}
-      onChange={onChange}
-      name={name}
-      placeholder={rest.placeholder}
-    />
+    <Box display="flex" flexDirection="column" gap="8px">
+      <StyledTextField
+        value={value}
+        onChange={onChange}
+        name={name}
+        placeholder={placeholder}
+      />
+    </Box>
   );
 };
 

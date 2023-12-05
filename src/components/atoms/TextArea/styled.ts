@@ -1,12 +1,6 @@
 // Design system
 import { styled, Box } from "@mui/material";
 
-export const Wrapper = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
-
 export const TextArea = styled("textarea")(({ theme }) => ({
   width: "100%",
   padding: "12px 16px",

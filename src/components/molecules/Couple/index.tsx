@@ -1,3 +1,4 @@
+// Design system
 import { Box, Typography, useTheme } from "@mui/material";
 
 interface ICoupleProps {

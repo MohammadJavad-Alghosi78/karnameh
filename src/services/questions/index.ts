@@ -1,4 +1,6 @@
+// Config
 import { http } from "@/config";
+// Types
 import {
   CreateAnswer,
   CreateQuestion,

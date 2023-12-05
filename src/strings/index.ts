@@ -1,10 +1,10 @@
 export const words = {
-  username: "میلاد الغوثی",
+  username: "الناز شاکردوست",
   karnameh: "کارنامه",
   karnamehDescription: "توضیحاتی درباره شرکت کارنامه",
   questionsList: "لیست سوالات",
   newQuestion: "سوال جدید",
-  fakeName: "میلاد الغوثی",
+  fakeName: "الناز شاکردوست",
   createNewQuestion: "ایجاد سوال جدید",
   subject: "موضوع",
   questionText: "متن سوال",

@@ -1,9 +1,9 @@
 // node_modules
 import { ChangeEvent, HTMLAttributes } from "react";
 // Design system
-import { Typography, useTheme } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 // Styles
-import { TextArea, Wrapper } from "./styled";
+import { TextArea } from "./styled";
 
 interface ITextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
   value?: string;
@@ -19,7 +19,7 @@ const TextAreaCp = (props: ITextAreaProps) => {
   const { value, onChange, rows, cols, errorMessage, ...rest } = props;
 
   return (
-    <Wrapper>
+    <Box display="flex" flexDirection="column" gap="8px">
       <TextArea
         value={value}
         onChange={onChange}
@@ -38,7 +38,7 @@ const TextAreaCp = (props: ITextAreaProps) => {
           {errorMessage}
         </Typography>
       )}
-    </Wrapper>
+    </Box>
   );
 };
 

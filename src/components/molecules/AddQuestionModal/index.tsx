@@ -5,6 +5,8 @@ import { Box, Typography, Button, useTheme, Modal } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 // Components
 import { TextArea, TextField } from "@/components";
+// Constants
+import { Rules } from "@/constants";
 // Strings
 import { words } from "@/strings";
 
@@ -76,6 +78,7 @@ const AddQuestionModal = (props: IAddQuestionModal) => {
                   placeholder={words.createQuestionTitlePlacholder}
                 />
               )}
+              rules={Rules}
             />
           </Box>
           <Box display="flex" gap="10px" flexDirection="column">
@@ -92,12 +95,7 @@ const AddQuestionModal = (props: IAddQuestionModal) => {
                   placeholder={words.createQuestionDesciptionPlaceholder}
                 />
               )}
-              rules={{
-                required: {
-                  value: true,
-                  message: words.thisFieldIsRequired,
-                },
-              }}
+              rules={Rules}
             />
           </Box>
           <Box

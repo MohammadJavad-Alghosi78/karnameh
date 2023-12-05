@@ -1,11 +1,13 @@
 // node_modules
 import { Controller, FieldValues, useFormContext } from "react-hook-form";
-// Components
-import { TextArea } from "@/components";
-// Strings
-import { words } from "@/strings";
 // Design system
 import { Box, Button, Typography, useTheme } from "@mui/material";
+// Components
+import { TextArea } from "@/components";
+// Constants
+import { Rules } from "@/constants";
+// Strings
+import { words } from "@/strings";
 
 interface IAnswerQuestion {
   onSubmit: (d: FieldValues) => Promise<void>;
@@ -37,12 +39,7 @@ const AnswerQuestion = (props: IAnswerQuestion) => {
       <Controller
         name="answer"
         control={control}
-        rules={{
-          required: {
-            value: true,
-            message: words.thisFieldIsRequired,
-          },
-        }}
+        rules={Rules}
         render={({ field }) => (
           <TextArea
             {...field}
