@@ -7,10 +7,11 @@ export { default as TextField } from "./atoms/TextField";
 export { default as Divider } from "./atoms/Divider";
 // Molecules
 export { default as Couple } from "./molecules/Couple";
+export { default as AddQuestionModal } from "./molecules/AddQuestionModal/container";
 // Organisms
 export { default as QuestionCard } from "./organisms/QuestionCard";
 export { default as AnswerCard } from "./organisms/AnswerCard";
-export { default as Header } from "./organisms/Header";
+export { default as Header } from "./organisms/Header/container";
 export { default as Container } from "./organisms/Container";
 // Templates
 export { default as QuestionsSection } from "./templates/QuestionsSection";

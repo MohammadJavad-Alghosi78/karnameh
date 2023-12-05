@@ -1,7 +1,9 @@
+// Design system
 import { Divider, useTheme } from "@mui/material";
 
 const DividerCp = () => {
   const theme = useTheme();
+
   return (
     <Divider
       orientation="vertical"

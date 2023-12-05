@@ -1,171 +1,32 @@
-"use client";
 // Design system
-import {
-  Box,
-  Typography,
-  Button,
-  Avatar,
-  useTheme,
-  Modal,
-} from "@mui/material";
+import { Box, Typography, Button, Avatar, useTheme } from "@mui/material";
 import AddTwoToneIcon from "@mui/icons-material/AddTwoTone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import CloseIcon from "@mui/icons-material/Close";
+// Components
+import { AddQuestionModal } from "@/components";
 // Strings
 import { words } from "@/strings";
 // Styles
 import { StyledBox } from "./styled";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useMutation, useQueryClient } from "react-query";
-import { QuestionServices } from "@/services";
-import { IQuestion } from "@/services/questions/types";
-import { TextArea, TextField } from "@/components";
 
 interface IHeaderProps {
   title: string;
+  isAddModalOpen: boolean;
+  onCloseModal: () => void;
+  onOpenModal: () => void;
 }
 
 const Header = (props: IHeaderProps) => {
+  const { isAddModalOpen, onCloseModal, onOpenModal, title } = props;
+
   const theme = useTheme();
-  const queryClient = useQueryClient();
-
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-
-  const mutation = useMutation({
-    mutationFn: (q: IQuestion) => {
-      return QuestionServices.createQuestion(q);
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["questions"] });
-    },
-  });
-
-  const { handleSubmit, reset, watch, setValue } = useForm({
-    mode: "onChange",
-    defaultValues: {
-      title: "",
-      description: "",
-    },
-  });
-
-  const handleOpenAddQuestionModal = () => {
-    setIsAddModalOpen(true);
-  };
-
-  const onSubmit = (data: any) => {
-    const currentDate = new Date();
-    const question = {
-      id: currentDate.getTime(),
-      ...data,
-      image: "",
-      date: new Intl.DateTimeFormat("fa-IR").format(currentDate),
-      time: `${currentDate.getHours()}:${currentDate.getMinutes()}`,
-      answers: [],
-    };
-
-    queryClient.invalidateQueries();
-    mutation.mutate(question);
-    setIsAddModalOpen(false);
-  };
-
-  const handleCloseModal = () => {
-    setIsAddModalOpen(false);
-    reset();
-  };
 
   return (
     <>
-      <Modal
-        open={isAddModalOpen}
-        onClose={handleCloseModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "50%",
-            height: "50%",
-            position: "absolute",
-            left: "25%",
-          }}
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            bgcolor={theme.palette.colors.naturalsWhite}
-            width="1"
-            padding="12px 20px"
-          >
-            <Typography variant="h1">{words.createNewQuestion}</Typography>
-            <Box
-              onClick={() => setIsAddModalOpen(false)}
-              style={{ cursor: "pointer" }}
-            >
-              <CloseIcon />
-            </Box>
-          </Box>
-          <Box
-            padding="20px 20px 24px"
-            width="1"
-            bgcolor={theme.palette.colors.grayLightest}
-          >
-            <Box
-              display="flex"
-              gap="10px"
-              flexDirection="column"
-              marginBottom="14px"
-            >
-              <Typography variant="h6" color={theme.palette.colors.grayDarker}>
-                {words.subject}
-              </Typography>
-              <TextField
-                value={watch("title")}
-                onChange={(e) => setValue("title", e.target.value)}
-                name="title"
-                placeholder={words.createQuestionTitlePlacholder}
-              />
-            </Box>
-            <Box display="flex" gap="10px" flexDirection="column">
-              <Typography variant="h6" color={theme.palette.colors.grayDarker}>
-                {words.questionText}
-              </Typography>
-
-              <TextArea
-                value={watch("description")}
-                onChange={(e) => setValue("description", e.target.value)}
-                name="description"
-                placeholder={words.createQuestionDesciptionPlaceholder}
-              />
-            </Box>
-            <Box
-              display="flex"
-              justifyContent="flex-end"
-              gap="16px"
-              marginTop="24px"
-            >
-              <Button variant="text" color="success" onClick={handleCloseModal}>
-                {words.cancel}
-              </Button>
-              <Button
-                variant="contained"
-                color="success"
-                onClick={handleSubmit(onSubmit)}
-              >
-                {words.createQuestion}
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-      </Modal>
+      <AddQuestionModal isOpen={isAddModalOpen} onCloseModal={onCloseModal} />
       <StyledBox>
         <Box>
-          <Typography variant="h1">{props.title}</Typography>
+          <Typography variant="h1">{title}</Typography>
         </Box>
         <Box display="flex" gap="40px">
           <Button
@@ -179,12 +40,12 @@ const Header = (props: IHeaderProps) => {
             variant="contained"
             color="success"
             startIcon={<AddTwoToneIcon style={{ marginInline: "0" }} />}
-            onClick={handleOpenAddQuestionModal}
+            onClick={onOpenModal}
           >
             {words.newQuestion}
           </Button>
           <Box display="flex" alignItems="center" gap="12px">
-            <Avatar sx={{ width: 44, height: 44 }} alt="Remy Sharp" src="" />
+            <Avatar sx={{ width: 44, height: 44 }} alt="Ali kia" src="" />
             <Typography variant="h4" color={theme.palette.colors.grayDarker}>
               {words.fakeName}
             </Typography>

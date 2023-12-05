@@ -8,7 +8,7 @@ import { words } from "@/strings";
 import { Box, Button, Typography, useTheme } from "@mui/material";
 
 interface IAnswerQuestion {
-  onSubmit: (data: FieldValues) => Promise<void>;
+  onSubmit: (d: FieldValues) => Promise<void>;
 }
 
 const AnswerQuestion = (props: IAnswerQuestion) => {
@@ -50,7 +50,7 @@ const AnswerQuestion = (props: IAnswerQuestion) => {
             placeholder={words.answerText}
           />
         )}
-      ></Controller>
+      />
       <Button
         variant="contained"
         color="success"

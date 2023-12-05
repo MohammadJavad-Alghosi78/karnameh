@@ -1,6 +1,9 @@
+// node_modules
 import { ChangeEvent, HTMLAttributes } from "react";
-import { TextArea, Wrapper } from "./styled";
+// Design system
 import { Typography, useTheme } from "@mui/material";
+// Styles
+import { TextArea, Wrapper } from "./styled";
 
 interface ITextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
   value?: string;
@@ -14,6 +17,7 @@ interface ITextAreaProps extends HTMLAttributes<HTMLTextAreaElement> {
 const TextAreaCp = (props: ITextAreaProps) => {
   const theme = useTheme();
   const { value, onChange, rows, cols, errorMessage, ...rest } = props;
+
   return (
     <Wrapper>
       <TextArea
