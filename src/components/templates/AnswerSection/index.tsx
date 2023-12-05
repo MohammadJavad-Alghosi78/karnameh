@@ -20,7 +20,15 @@ const AnswerQuestion = (props: IAnswerQuestion) => {
   const { control, formState, handleSubmit } = useFormContext();
 
   return (
-    <Box marginTop="24px" width="1">
+    <Box
+      marginTop="24px"
+      width="1"
+      sx={{
+        "& .MuiButton-contained": {
+          color: theme.palette.colors.naturalsWhite,
+        },
+      }}
+    >
       <Typography
         marginBottom="16px"
         variant="h1"

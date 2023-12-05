@@ -23,14 +23,9 @@ const AddQuestionModal = (props: IAddQuestionModal) => {
   const { control, handleSubmit } = useFormContext();
 
   return (
-    <Modal
-      open={isOpen}
-      onClose={onCloseModal}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
+    <Modal open={isOpen} onClose={onCloseModal}>
       <Box
-        style={{
+        sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -39,6 +34,10 @@ const AddQuestionModal = (props: IAddQuestionModal) => {
           height: "50%",
           position: "absolute",
           left: "25%",
+
+          "& .MuiButton-contained": {
+            color: theme.palette.colors.naturalsWhite,
+          },
         }}
       >
         <Box

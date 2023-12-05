@@ -65,8 +65,18 @@
           "time": "17:10",
           "name": "میلاد الغوثی",
           "image": "",
-          "likes": 0,
-          "disLikes": 0
+          "likes": 24,
+          "disLikes": 8
+        },
+        {
+          "answer": "fsdfsafd",
+          "answerId": 1701808819896,
+          "date": "۱۴۰۲/۹/۱۵",
+          "time": "0:10",
+          "name": "الناز شاکردوست",
+          "image": "",
+          "likes": 12,
+          "disLikes": 5
         }
       ]
     },
